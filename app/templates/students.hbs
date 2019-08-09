@@ -1,0 +1,14 @@
+
+<button {{action 'getStudents'}}>Students</button>
+
+<ul>
+    {{#each students as |student|}}
+    <li>{{student.name}} {{student.surname}}</li>
+    {{/each}}
+</ul>
+
+<input id="name" placeholder="name">
+<input id="surname" placeholder="surname">
+<button {{action 'addStudent'}}>Add Student</button>
+
+{{outlet}}
