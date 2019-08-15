@@ -1,0 +1,41 @@
+
+.studentList {
+    width: 250px;
+    height: 30px;
+    background-color: antiquewhite;
+}
+
+.studentListDeleteButton {
+    float: right;
+    border-radius: 30px;
+    background-color: aquamarine;
+}
+
+#name {
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+#surname {
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.addingStudentDiv {
+
+    border: 1px solid saddlebrown;
+    display: inline-grid;
+
+}
+
+.wrapperDiv {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.myStudentList {
+    text-align: center;
+    list-style: none;
+}
