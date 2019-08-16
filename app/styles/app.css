@@ -5,11 +5,6 @@
     background-color: antiquewhite;
 }
 
-.studentListDeleteButton {
-    float: right;
-    border-radius: 30px;
-    background-color: aquamarine;
-}
 
 #name {
     border-radius: 5px;
@@ -24,10 +19,9 @@
 }
 
 .addingStudentDiv {
-
     border: 1px solid saddlebrown;
     display: inline-grid;
-
+    padding: 20px;
 }
 
 .wrapperDiv {
@@ -38,4 +32,33 @@
 .myStudentList {
     text-align: center;
     list-style: none;
+}
+
+.studentListAddLessonButton {
+
+    float: right;
+
+}
+
+
+.studentListDeleteButton {
+    float: right;
+    border-radius: 30px;
+    background-color: aquamarine;
+}
+
+
+.lessonListDiv {
+    display: none;
+    margin-top: 100px;
+    border: 3px solid black;
+    padding: 30px;
+}
+
+.lessonsList {
+    width: 100px;
+    background-color: greenyellow;
+    padding: 10px;
+    border-radius: 7px;
+    margin-top: 5px;
 }

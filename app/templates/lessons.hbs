@@ -1,0 +1,21 @@
+
+<div class="wrapperDiv">
+    <p>{{#link-to "students"}}Students Page{{/link-to}}</p>
+    <p><button {{action 'getLessons'}}>List All Lessons</button></p>
+    {{#if open-close}}
+    <ul class="myStudentList">
+        {{#each lessons as |lesson|}}
+        <li class="lessonsList">{{lesson.name}}
+            <button class="studentListDeleteButton" {{action 'deleteLesson' lesson}}>x</button>
+        </li>
+        {{/each}}
+    </ul>
+    {{/if}}
+    <div class="addingStudentDiv">
+    <p>Add a New Lesson</p>
+    <input id="name" placeholder="Lesson Name">
+    <button {{action 'addLesson'}}>Add Lesson</button>
+    </div>
+</div>
+
+{{outlet}}
