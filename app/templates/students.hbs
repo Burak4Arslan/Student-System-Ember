@@ -5,7 +5,9 @@
     {{#if open-close}}
     <ul class="myStudentList">
         {{#each students as |student|}}
-        <li class="studentList">{{student.name}} {{student.surname}}
+        <li class="studentList">
+            {{student.studentNumber}} <br>
+            {{student.name}} {{student.surname}}<br>
             <button class="studentListDeleteButton" {{action 'deleteStudent' student}}>x</button>
             <button class="studentListAddLessonButton" {{action 'openLessonList' student}}>+</button>
         </li>
@@ -14,6 +16,7 @@
     {{/if}}
     <div class="addingStudentDiv">
     <p>Add a New Student</p>
+    <input id="studentNumber" type="number" placeholder="Student Number">
     <input id="name" placeholder="name">
     <input id="surname" placeholder="surname">
     <button {{action 'addStudent'}}>Add Student</button>

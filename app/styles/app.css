@@ -1,7 +1,6 @@
 
 .studentList {
-    width: 250px;
-    height: 30px;
+    padding:25px;
     background-color: antiquewhite;
 }
 
@@ -12,7 +11,19 @@
     margin-bottom: 20px;
 }
 
+#lessonCode {
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 20px;
+}
+
 #surname {
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+#studentNumber {
     border-radius: 5px;
     display: block;
     margin-bottom: 20px;

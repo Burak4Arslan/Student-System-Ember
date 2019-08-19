@@ -5,7 +5,7 @@
     {{#if open-close}}
     <ul class="myStudentList">
         {{#each lessons as |lesson|}}
-        <li class="lessonsList">{{lesson.name}}
+        <li class="lessonsList">{{lesson.lessonCode}} {{lesson.name}}
             <button class="studentListDeleteButton" {{action 'deleteLesson' lesson}}>x</button>
         </li>
         {{/each}}
@@ -13,6 +13,7 @@
     {{/if}}
     <div class="addingStudentDiv">
     <p>Add a New Lesson</p>
+    <input id="lessonCode" placeholder="Lesson Code">
     <input id="name" placeholder="Lesson Name">
     <button {{action 'addLesson'}}>Add Lesson</button>
     </div>

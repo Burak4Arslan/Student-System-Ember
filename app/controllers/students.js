@@ -12,10 +12,12 @@ export default Controller.extend({
             self = this;
             let name = document.getElementById('name').value;
             let surname = document.getElementById('surname').value;
+            let studentNumber = document.getElementById('studentNumber').value;
             name = name.trim();
             surname = surname.trim();
+            studentNumber.trim();
             console.log
-            if(!(name && surname)) {
+            if(!(name && surname && studentNumber)) {
                 document.getElementById('name').value="";
                 document.getElementById('surname').value="";
                 return;
@@ -23,6 +25,7 @@ export default Controller.extend({
             this.incrementProperty('open-close');
 
             let student = {
+                "studentNumber":studentNumber,
                 "name": name,
                 "surname": surname
             }
@@ -36,18 +39,19 @@ export default Controller.extend({
             xmlHttp.open("POST","http://localhost:8081/student", true);
             xmlHttp.setRequestHeader("Content-Type", "application/json");
             xmlHttp.send(JSON.stringify(student));
+            document.getElementById('studentNumber').value="";
             document.getElementById('name').value="";
             document.getElementById('surname').value="";
         },
         deleteStudent : function(student) {
-            let deletingStudentID = student.id;
+            let deletingStudentNumber = student.studentNumber;
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.onreadystatechange =  () => { 
                 if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
                     getAllStudents();
                 }
             }
-            xmlHttp.open("DELETE","http://localhost:8081/student/"+deletingStudentID, true);
+            xmlHttp.open("DELETE","http://localhost:8081/students?studentNumber="+deletingStudentNumber, true);
             xmlHttp.setRequestHeader("Content-Type", "application/json");
             xmlHttp.send();
         },
@@ -92,7 +96,7 @@ export default Controller.extend({
                     xmlHttp2.send();
                 }
             }
-            xmlHttp.open("PUT","http://localhost:8081/student/"+currentStudent.id+"/lesson/"+lesson.id, true);
+            xmlHttp.open("PUT","http://localhost:8081/students?studentNumber="+currentStudent.studentNumber+"&lessonCode="+lesson.lessonCode, true);
             xmlHttp.send();
         }
     }

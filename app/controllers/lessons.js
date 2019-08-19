@@ -11,15 +11,19 @@ export default Controller.extend({
         addLesson: function() {
             self = this;
             let name = document.getElementById('name').value;
+            let lessonCode = document.getElementById('lessonCode').value;
             name = name.trim();
+            lessonCode = lessonCode.trim();
             console.log
-            if(!(name)) {
+            if(!(name && lessonCode)) {
                 document.getElementById('name').value="";
+                document.getElementById('lessonCode').value="";
                 return;
             }
             this.incrementProperty('open-close');
 
             let lesson = {
+                "lessonCode": lessonCode,
                 "name": name
             }
 
@@ -29,21 +33,21 @@ export default Controller.extend({
                     getAllLessons();
                 }
             }
-            xmlHttp.open("POST","http://localhost:8081/lesson", true);
+            xmlHttp.open("POST","http://localhost:8081/lessons", true);
             xmlHttp.setRequestHeader("Content-Type", "application/json");
             xmlHttp.send(JSON.stringify(lesson));
             document.getElementById('name').value="";
+            document.getElementById('lessonCode').value="";
         },
         deleteLesson : function(lesson) {
-            console.log(lesson);
-            let deletingLessonID = lesson.id;
+            let deletingLessonCode = lesson.lessonCode;
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.onreadystatechange =  () => { 
                 if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
                     getAllLessons();
                 }
             }
-            xmlHttp.open("DELETE","http://localhost:8081/lesson/"+deletingLessonID, true);
+            xmlHttp.open("DELETE","http://localhost:8081/lessons?lessonCode="+deletingLessonCode, true);
             xmlHttp.setRequestHeader("Content-Type", "application/json");
             xmlHttp.send();
         }
